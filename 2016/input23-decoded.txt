@@ -1,0 +1,37 @@
+
+    cpy a b        b = a
+    dec b          b -= 1
+
+qqq cpy a d        d = a
+    cpy 0 a        a = 0
+
+yyy cpy b c        c = b
+
+xxx inc a          a += 1
+    dec c          c -= 1
+    jnz c -2       if c != 0: goto xxx
+    dec d          d -= 1
+    jnz d -5       if d != 0: goto yyy
+
+    dec b          b -= 1
+
+    cpy b c        c = b
+    cpy c d        d = b
+zzz dec d          d -= 1
+    inc c          c += 1
+    jnz d -2       if d != 0: goto zzz
+
+    tgl c          toggle C instructions away   This becomes: toggle 2*b away
+
+    cpy -16 c      c = -16
+    jnz 1 c        goto qqq                     This if toggled will become cpy 1 c
+
+    cpy 75 c       c = 75
+bbb jnz 88 d       go d instructions            This if toggled will become cpy 88 d
+aaa inc a          a += 1
+    inc d          d += 1                       This if toggled will become dec d
+    jnz d -2       if d != 0: goto aaa
+    inc c          c += 1                       This if toggled will become dec c
+    jnz c -5       if c !- 0: goto bbb
+
+

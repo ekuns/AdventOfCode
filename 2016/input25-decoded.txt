@@ -1,0 +1,48 @@
+     cpy a d        d = input
+     cpy 15 c       c = 15
+
+bb   cpy 170 b      b = 170
+aa   inc d          d += 1
+     dec b          b -= 1
+     jnz b -2       if b != 0 goto aa
+     dec c          c -= 1
+     jnz c -5       if c != 0 goto bb
+kk   cpy d a        a = d
+jj   jnz 0 0        no-op
+     cpy a b        b = a
+     cpy 0 a        a = 0
+ff   cpy 2 c        c = 2
+ee   jnz b 2        if b != 0 goto cc else goto dd
+     jnz 1 6
+     
+cc   dec b          b -= 1
+     dec c          c -= 1
+     jnz c -4       if c != 0 goto ee
+     inc a          a += 1
+     jnz 1 -7       goto ff
+     
+dd   cpy 2 b        b = 2
+ii   jnz c 2        if c != 0 goto gg
+     jnz 1 4        goto hh
+     
+gg   dec b          b -= 1
+     dec c          c -= 1
+     jnz 1 -4       goto ii
+     
+hh   jnz 0 0        no-op
+     out b                                          --- write b
+     jnz a -19      if a != 0 goto jj else goto kk
+     jnz 1 -21
+----------------------------------------------------------
+
+The above decodes to this program:
+
+d = input + 170 * 15
+while True:
+    a = d
+    while True:
+        print(a % 2)
+        a = a // 2
+        if a == 0:
+            break
+
