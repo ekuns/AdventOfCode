@@ -2,10 +2,9 @@ import os
 import re
 from itertools import chain
 
-with open("input02.txt", "r") as f:
+with open('input02.txt', 'r') as f:
     full_input_lines = f.readlines()
-
-print('Number of lines: ' + str(len(full_input_lines)))
+print(f'Number of lines: {len(full_input_lines)}')
 
 # ================ Part 1 ================
 
@@ -45,7 +44,7 @@ def part_1_and_2(lines):
 
 
 if os.path.isfile('test02.txt'):
-    with open("test02.txt", "r") as f:
+    with open('test02.txt', 'r') as f:
         test_input_lines = f.readlines()
         print('TEST INPUT')
         part_1_and_2(test_input_lines)

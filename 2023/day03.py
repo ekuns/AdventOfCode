@@ -80,7 +80,6 @@ def part2(lines):
         adj_list = []
         for number, n_line_no, n_pos_list in numbers_list:
             for dx, dy in deltas:
-                # FIXME: handle duplicate identification of same number
                 if line_no + dy == n_line_no and pos + dx in n_pos_list:
                     adj_list.append(number)
                     break
