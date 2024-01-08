@@ -43,15 +43,15 @@ def part2(lines):
           f'with record distance {record_distance:,} mm')
 
 
-if path.isfile('inputs/test06.txt'):
-    with open('inputs/test06.txt', 'r') as f:
+if path.isfile('test_inputs/test06.txt'):
+    with open('test_inputs/test06.txt', 'r') as f:
         test_input_lines = f.readlines()
         test_input_lines = [l.strip() for l in test_input_lines]
         print('\nTEST INPUT PART 1')
         part1(test_input_lines)
 
-if path.isfile('inputs/test06.txt'):
-    with open('inputs/test06.txt', 'r') as f:
+if path.isfile('test_inputs/test06.txt'):
+    with open('test_inputs/test06.txt', 'r') as f:
         test_input_lines = f.readlines()
         test_input_lines = [l.strip() for l in test_input_lines]
         print('\nTEST INPUT PART 2')

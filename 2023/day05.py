@@ -88,15 +88,15 @@ def part2(lines):
     print(f'The closest seed is at location {min(all_locations)}')
 
 
-if path.isfile('inputs/test05.txt'):
-    with open('inputs/test05.txt', 'r') as f:
+if path.isfile('test_inputs/test05.txt'):
+    with open('test_inputs/test05.txt', 'r') as f:
         test_input_lines = f.readlines()
         test_input_lines = [l.strip() for l in test_input_lines]
         print('\nTEST INPUT PART 1')
         part1(test_input_lines)
 
-if path.isfile('inputs/test05.txt'):
-    with open('inputs/test05.txt', 'r') as f:
+if path.isfile('test_inputs/test05.txt'):
+    with open('test_inputs/test05.txt', 'r') as f:
         test_input_lines = f.readlines()
         test_input_lines = [l.strip() for l in test_input_lines]
         print('\nTEST INPUT PART 2')
