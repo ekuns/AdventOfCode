@@ -1,6 +1,6 @@
 import os
 
-with open('input01.txt', 'r') as f:
+with open('inputs/input01.txt', 'r') as f:
     full_input_lines = f.readlines()
 print(f'Number of lines: {len(full_input_lines)}')
 
@@ -48,14 +48,14 @@ def part2(lines):
     print(f'Total Part Two sum = {code_sum}')
 
 
-if os.path.isfile('test01_A.txt'):
-    with open('test01_A.txt', 'r') as f:
+if os.path.isfile('inputs/test01_A.txt'):
+    with open('inputs/test01_A.txt', 'r') as f:
         test_input_lines = f.readlines()
         print('TEST INPUT PART 1')
         part1(test_input_lines)
 
-if os.path.isfile('test01_B.txt'):
-    with open('test01_B.txt', 'r') as f:
+if os.path.isfile('inputs/test01_B.txt'):
+    with open('inputs/test01_B.txt', 'r') as f:
         test_input_lines = f.readlines()
         print('TEST INPUT PART 2')
         part2(test_input_lines)

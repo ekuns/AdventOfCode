@@ -1,7 +1,7 @@
 import os
 import re
 
-with open('input03.txt', 'r') as f:
+with open('inputs/input03.txt', 'r') as f:
     full_input_lines = f.readlines()
 print(f'Number of lines: {len(full_input_lines)}')
 
@@ -90,14 +90,14 @@ def part2(lines):
     print(f'Sum of all gear ratios = {score}')
 
 
-if os.path.isfile('test03.txt'):
-    with open('test03.txt', 'r') as f:
+if os.path.isfile('inputs/test03.txt'):
+    with open('inputs/test03.txt', 'r') as f:
         test_input_lines = f.readlines()
         print('TEST INPUT PART 1')
         part1(test_input_lines)
 
-if os.path.isfile('test03.txt'):
-    with open('test03.txt', 'r') as f:
+if os.path.isfile('inputs/test03.txt'):
+    with open('inputs/test03.txt', 'r') as f:
         test_input_lines = f.readlines()
         print('TEST INPUT PART 2')
         part2(test_input_lines)

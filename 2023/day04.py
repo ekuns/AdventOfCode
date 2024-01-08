@@ -1,6 +1,6 @@
 from os import path
 
-with open('input04.txt', 'r') as f:
+with open('inputs/input04.txt', 'r') as f:
     full_input_lines = f.readlines()
 print(f'Number of lines: {len(full_input_lines)}')
 
@@ -46,14 +46,14 @@ def part2(lines):
     print(f'Total cards: {total_cards}')
 
 
-if path.isfile('test04.txt'):
-    with open('test04.txt', 'r') as f:
+if path.isfile('inputs/test04.txt'):
+    with open('inputs/test04.txt', 'r') as f:
         test_input_lines = f.readlines()
         print('TEST INPUT PART 1')
         part1(test_input_lines)
 
-if path.isfile('test04.txt'):
-    with open('test04.txt', 'r') as f:
+if path.isfile('inputs/test04.txt'):
+    with open('inputs/test04.txt', 'r') as f:
         test_input_lines = f.readlines()
         print('TEST INPUT PART 2')
         part2(test_input_lines)
