@@ -8,6 +8,7 @@ print(f'Number of lines: {len(full_input_lines)}')
 
 Lens = namedtuple("Lens", "label focus")
 
+
 class Day15:
     def __init__(self, lines):
         self.steps = self.read_steps(lines)
