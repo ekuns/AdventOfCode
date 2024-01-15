@@ -1,17 +1,10 @@
-from collections import namedtuple
-from os import path
 from copy import deepcopy
+from os import path
 
 with open('inputs/input14.txt', 'r') as f:
     full_input_lines = f.readlines()
 full_input_lines = [l.strip() for l in full_input_lines]
 print(f'Number of lines: {len(full_input_lines)}')
-
-
-# ================ Part 1 ================
-
-
-Skip = namedtuple("Skip", "direction pair type")
 
 
 class Day14:
