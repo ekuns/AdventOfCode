@@ -1,6 +1,7 @@
 from os import path
 from typing import NamedTuple
 import re
+from math import lcm
 
 with open('inputs/input20.txt', 'r') as f:
     full_input_lines = f.readlines()
@@ -18,6 +19,9 @@ class Day20:
         self.high = 0
         self.flip_flop = {}
         self.conjunction = {}
+        self.cycle = 0
+        self.part = 0
+        self.modules_to_watch = {}
         for k, v in self.modules.items():
             # print(f'{k} = {v}')
             if v.type == '&':  # conjunction
@@ -77,15 +81,41 @@ class Day20:
                     else:
                         self.low += 1
 
+                    # Look for information for part 2
+                    if d == 'rx' and self.part == 2:
+                        for key, val in self.conjunction['sq'].items():
+                            if val and self.modules_to_watch[key] == 0:
+                                self.modules_to_watch[key] = self.cycle + 1
+                        if sum([1 for x in self.modules_to_watch.values() if x > 0]) == 4:
+                            print(self.modules_to_watch)
+                            print(lcm(*list(self.modules_to_watch.values())))
+                            exit(0)
+
     def part1(self):
+        self.part = 1
         for _ in range(1000):
             # print('')
             self.button_push()
             self.process_pulses()
         print(f'Pulses: high = {self.high}, low = {self.low}, combination = {self.high * self.low}')
 
+    def instrument_things(self):
+        targets = [key for key, module in self.modules.items() if 'rx' in module.dests]
+        # Assume targets is only length 1 because it is in our inputs
+        self.modules_to_watch = {key: 0 for key, module in self.modules.items() if targets[0] in module.dests}
+        print(f'targets to watch = {self.modules_to_watch}')
+
     def part2(self):
-        pass
+        self.part = 2
+        # Add our destination module
+        self.modules['rx'] = Module('&', [])
+        inputs = [kk for kk, vv in self.modules.items() if 'rx' in vv.dests]
+        self.conjunction['rx'] = {i: False for i in inputs}
+        self.instrument_things()
+        for cycle in range(1000000):
+            self.cycle = cycle
+            self.button_push()
+            self.process_pulses()
 
 
 if path.isfile('test_inputs/test20.txt'):
@@ -104,5 +134,5 @@ if path.isfile('test_inputs/test20.txt'):
 
 print('\nFULL INPUT PART 1')
 Day20(full_input_lines).part1()
-# print('\nFULL INPUT PART 2')
-# Day20(full_input_lines).part2()
+print('\nFULL INPUT PART 2')
+Day20(full_input_lines).part2()
