@@ -1,4 +1,3 @@
-import operator
 from os import path
 
 with open('inputs/input21.txt', 'r') as f:
