@@ -1,7 +1,7 @@
-from os import path
-from typing import NamedTuple
 import re
 from math import lcm
+from os import path
+from typing import NamedTuple
 
 with open('inputs/input20.txt', 'r') as f:
     full_input_lines = f.readlines()
@@ -130,7 +130,7 @@ if path.isfile('test_inputs/test20.txt'):
 #         test_input_lines = f.readlines()
 #         test_input_lines = [l.strip() for l in test_input_lines]
 #         print('\nTEST INPUT PART 2')
-#         Day19(test_input_lines).part2()
+#         Day20(test_input_lines).part2()
 
 print('\nFULL INPUT PART 1')
 Day20(full_input_lines).part1()
